@@ -1,0 +1,35 @@
+ <div class="dash-right">
+        <div class="dash-header">
+            <div class="dash-title">
+                <h1>Blogs</h1>
+            </div>
+            <div class="dash-nav">
+                <a routerLink="/admin-panel/add-post" class="btn btn-success">Add Post</a>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>#ID</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Active</th>
+                <th>Featured</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let item of data" >
+                <td>1</td>
+                <td><img src="{{get_list_url}}{{item.Image}}" ></td>
+                <td>{{item.Title}}</td>
+                <td>{{item.categories.title}}</td>
+                <td>{{item.Active}}</td>
+                <td>{{item.Featured}}</td>
+                <td>
+                     
+                    <a  (click)="delte(item._id)" class="btn btn-info btn-sm">Edit</a>
+                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+          
+        </table>
+    </div>   

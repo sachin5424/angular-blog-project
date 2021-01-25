@@ -1,0 +1,43 @@
+<!-- <div class="text-center"> 
+	<input class="form-control" type="file"
+			(change)="onChange($event)"> 
+
+    
+	<button (click)="onUpload()" 
+		class="btn btn-success"> 
+		Upload 
+	</button> 
+</div>  -->
+
+<!-- Shareable short link of uoloaded file -->
+<!-- <div class="container text-center jumbotron"
+	*ngIf="shortLink"> 
+	<h2> Visit Here</h2> 
+	<a href="{{shortLink}}">{{shortLink}}</a> 
+</div>  -->
+
+<!--Flag variable is used here-->
+<!-- <div class="container" *ngIf="loading"> 
+	<h3>Loading ...</h3> 
+</div>  -->
+
+
+<img src="{{img}}">
+<form >
+    <div>
+        <input type="text" required [(ngModel)]="model.username" name="username" > 
+        <input type="file" required [(ngModel)]="model.profile" name="profile" accept="image/*"  (change)="onChange($event)"> 
+        <input type="text" required [(ngModel)]="model.cat" name="cat" > 
+        <button type="submit" (click)="onUpload()" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<br>
+<br>
+<br>
+<br>
+<div class="" *ngFor="let item of temp">
+  
+    
+    
+    <img width="10%" src="{{url}}{{item.profile}}" alt="nn">
+</div>
