@@ -11,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContectComponent } from './contect/contect.component';
-import {UpdateComponent} from './categories/update/update.component'
+import {UpdateComponent} from './categories/update/update.component';
+
 
 
 @NgModule({

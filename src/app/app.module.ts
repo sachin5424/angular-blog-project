@@ -13,6 +13,7 @@ import { BlogComponent } from './blog/blog.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { DemoComponent } from './demo/demo.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DemoComponent } from './demo/demo.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule
     
   ],
