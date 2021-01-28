@@ -20,6 +20,9 @@ export class UpdateComponent implements OnInit {
   data:any;
   a:any
   b:string='';
+  error:string |undefined
+  value:string|undefined
+  
   constructor(private service:UpdateService,private http:HttpClient,private router:ActivatedRoute,private routing:Router) {
     
    }
@@ -28,7 +31,7 @@ export class UpdateComponent implements OnInit {
    this.id= this.router.snapshot.paramMap.get('id')
    console.log(this.service.get_value(this.id).subscribe((data:any)=>{
      this.data=data
-     this.model.title=data.title
+     this.value=data.title
      this.a=data._id
    }));
    console.log(this.router.snapshot.params.id);
@@ -36,8 +39,12 @@ export class UpdateComponent implements OnInit {
    this.update_form=false
    
   }
+  
   onSubmit(jj:any){
-
+    if (this.value=="") {
+       this.error="requied";
+    }
+    else{
      this.http.put('http://localhost:3002/categories/'+this.id,this.model).subscribe()
      this.update_form=true
       console.log(
@@ -47,6 +54,7 @@ export class UpdateComponent implements OnInit {
       console.log(
        this.id
       );
+    }
          
   }
   clickEventHandler(){

@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContectComponent } from './contect/contect.component';
 import {UpdateComponent} from './categories/update/update.component';
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
 
 
@@ -22,6 +23,7 @@ import {UpdateComponent} from './categories/update/update.component';
     AdminRoutingModule,
     HttpClientModule,
     FormsModule,
+    AngularMaterialModule,
    
     
   ]

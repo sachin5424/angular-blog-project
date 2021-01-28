@@ -1,0 +1,21 @@
+a{
+    text-decoration: none;
+}
+/* .sidenav{
+    display: none;
+    cursor: none;
+  
+} */
+
+@media only screen and (max-width: 600px) {
+    .menu {
+      background-color: lightblue;
+      display: none;
+    }
+    .sidenav{
+        display: block;
+        cursor: pointer;
+        background-color: aqua;
+        margin-left: 10rem;
+    }
+  }

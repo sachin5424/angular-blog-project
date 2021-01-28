@@ -8,7 +8,7 @@ import {CategoriesService} from './categories.service'
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-  data:any;
+  data:any[]=[];
   constructor( private service:CategoriesService ) { }
 
   ngOnInit(): void {

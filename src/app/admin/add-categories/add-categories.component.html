@@ -1,28 +1,23 @@
 <div class="dash-right">
     <div class="dash-header">
       <div class="dash-title">
-          <h1>Create Blog</h1>
+          <h1>Create categories</h1>
       </div>
     </div>
     <div class="blog-form">
-      <form #categories='ngForm' (ngSubmit)="onSubmit(categories.value)" >
+      <form #categories='ngForm' class="example-form" (ngSubmit)="onSubmit(categories.value)" >
         <div class="alert alert-success" *ngIf="form_temp" >
             <strong>Success!</strong> Indicates a successful or positive action.
           </div>
-        <div class="form-group form-row">
-            <label class="col-md-3">Title <span class="required">*</span></label>
-            <div class="col-md-9">
-              <input type="text" [(ngModel)]="model.title" class="form-control" name="title"  placeholder="Title" required>
-              <small class="text-danger">{{temp}}</small>
-            </div>
-        </div>
-     
-        <div class="form-group form-row">
-            <label class="col-md-3"></label>
-            <div class="col-md-9">
-              <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-        </div>
+              <mat-form-field class="example-full-width">
+                <mat-label>categories </mat-label>
+                <input type="text" matInput [(ngModel)]="model.title"  name="title"  placeholder="Add your categories"  autocomplete="nope">
+              </mat-form-field>
+              <mat-hint>{{temp}}</mat-hint> 
+              <button mat-raised-button color="accent" type="submit">
+                <mat-icon>done</mat-icon>
+              </button>
+         
       </form>
     </div>
 </div>  
