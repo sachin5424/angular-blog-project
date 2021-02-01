@@ -10,7 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { DemoComponent } from './demo/demo.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
@@ -35,7 +35,8 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    ReactiveFormsModule,
     
   ],
   providers: [],

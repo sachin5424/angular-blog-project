@@ -21,6 +21,7 @@ export class ContactService {
     this.http = new HttpClient(handler)
    }
    contect_data(formdata:Contact):Observable<any>{
+     
      return this.http.post(this.url,formdata,this.httOption)
    }
 }

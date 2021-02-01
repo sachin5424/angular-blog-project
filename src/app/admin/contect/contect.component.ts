@@ -11,17 +11,25 @@ export class ContectComponent implements OnInit {
   constructor( private service:ContectService) { }
 
   ngOnInit(): void {
+    
     this.service.get_contect_data().subscribe((data:any)=>{
-   this.data=data
-   console.log(data);
+    this.data=data
+ 
+    console.log(data);
+    console.log('ok');
+
+
    
     }
+    
     )
   }
+  
   clickEventHandler(id:any){
     this.service.contect_delete(id)
+    this.ngOnInit()
   
     
   }
-
+ 
 }

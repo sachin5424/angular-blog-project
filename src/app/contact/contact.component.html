@@ -4,24 +4,47 @@
         <div class="row justify-content-center">
           <div class="col-md-8">
             <h1>Contact</h1>
-            <form  #contect="ngForm" (ngSubmit)="submitMethod()">
+            <form [formGroup]="registerForm" (ngSubmit)="submitMethod()">
+            
                 <div class="m-4 alert alert-success" *ngIf="form_temp" >
                     <strong>Success!</strong> Indicates a successful or positive action.
                   </div>
+              <!-- <div class="form-group">
+                <input type="text" name="name" formControlName="name" required class="form-control"  placeholder="Name">
+                <mat-hint [hidden]="f.name.invalid">kjh</mat-hint>
+              </div> -->
+              <mat-form-field class="example-full-width">
+                <mat-label>username</mat-label>
+                <input matInput name="name" formControlName="name"  placeholder="Name">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput name="email" formControlName="email"  placeholder="E-Mail">
+              </mat-form-field>
+            
+              <!-- <div class="form-group">
+                <input type="text" name="email" formControlName="email" required class="form-control" placeholder="E-Mail">
+              </div> -->
+              <mat-form-field class="example-full-width">
+                <mat-label>Phone</mat-label>
+                <input matInput name="phone" formControlName="phone"  required class="form-control" placeholder="Phone">
+              </mat-form-field>
+
+              <!-- <div class="form-group">
+                <input type="text" name="phone" formControlName="phone"  required class="form-control" placeholder="Phone">
+              </div> -->
+              <!-- <div class="form-group">
+                <textarea name="message" rows="5" class="form-control" required formControlName="msg" placeholder="Message"></textarea>
+              </div> -->
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Textarea</mat-label>
+              <textarea matInput name="message" rows="5" class="form-control" required formControlName="msg" placeholder="Message">
+
+              </textarea>
+              </mat-form-field>
               <div class="form-group">
-                <input type="text" name="name" [(ngModel)]="model.name" required class="form-control" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <input type="text" name="email" [(ngModel)]="model.email" required class="form-control" placeholder="E-Mail">
-              </div>
-              <div class="form-group">
-                <input type="text" name="phone" [(ngModel)]="model.phone" required class="form-control" placeholder="Phone">
-              </div>
-              <div class="form-group">
-                <textarea name="message" rows="5" class="form-control" required [(ngModel)]="model.msg" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <button class="btn btn-success">Send Message</button>
+                <button class="btn btn-success" >Send Message</button>
               </div>
             </form>
           </div>
