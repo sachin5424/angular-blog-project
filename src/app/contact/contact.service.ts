@@ -9,7 +9,7 @@ import {catchError,map} from 'rxjs/operators'
 })
 export class ContactService {
   error:any={};
-  url:any="http://localhost:3002/contect";
+  url:any="http://localhost:3002/contact/";
   httOption={
     headers:new HttpHeaders(
       {'contect-Type':'applicaton/json'}
@@ -21,7 +21,7 @@ export class ContactService {
     this.http = new HttpClient(handler)
    }
    contect_data(formdata:Contact):Observable<any>{
-     
-     return this.http.post(this.url,formdata,this.httOption)
+    
+     return this.http.post(this.url+'add',formdata,this.httOption)
    }
 }

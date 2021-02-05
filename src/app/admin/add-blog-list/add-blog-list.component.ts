@@ -12,11 +12,12 @@ export class AddBlogListComponent implements OnInit {
   
   get_list_url='http://localhost:3002/';
   data:any[]=[];
+  id:any 
   constructor(private http:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
     
-    this.http.get(this.get_list_url).subscribe((data:any)=>{
+    this.http.get(this.get_list_url+'blog/'+'list').subscribe((data:any)=>{
       console.log(data);
       this.data=data
       
@@ -24,10 +25,11 @@ export class AddBlogListComponent implements OnInit {
 
   }
   delte(id:any){
-  console.log(id);
-  this.http.delete(this.get_list_url+'blog/'+id).subscribe()
-  this.router.navigate(['/admin-panel/blog-list'])
+   console.log(id);
+   this.http.delete(this.get_list_url+'blog/'+'delete/'+id).subscribe()
+   this.ngOnInit()
   
+   
   }
-
+ 
 }

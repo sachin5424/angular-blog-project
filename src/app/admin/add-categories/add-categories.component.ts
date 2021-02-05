@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CategorieService} from './categorie.service'
 import {Categorie} from './categorie'
+import { FormGroup ,FormControl, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-categories',
@@ -13,6 +15,8 @@ export class AddCategoriesComponent implements OnInit {
   msg:string='';
   error_msg:string='';
   form_temp:boolean;
+  error:any
+  messsage:string |undefined
 
   constructor(private catService:CategorieService) {
     this.temp='';
@@ -21,22 +25,22 @@ export class AddCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit(data:String){
+  categoriesForm= new FormGroup({
+    title:new FormControl('',Validators.required)
+  })
+  onSubmit(){
+    this.catService.categories(this.categoriesForm.value).subscribe((data)=>{
+      this.form_temp =true
+      this.messsage = data.messsage    
+    },
+    (error)=>{
+  
+      if(error.status == 400){
+        this.form_temp=true
+        this.messsage =error.error.messsage
+        
+      }
     
-   if (this.model.title=="") {
-      this.temp='Title is required';
-   }
-   else{
-    this.temp=this.model.title
-    this.catService.categories(this.model).subscribe(
-      res=>this.msg='successful save',
-      err=>this.error_msg="something wrong",
       
-    );
-    this.temp='';
-    this.model.title=''
-    this.form_temp=true
-   }
-    
-  }
+    })}
 }

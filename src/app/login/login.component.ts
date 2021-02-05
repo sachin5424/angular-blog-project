@@ -4,7 +4,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { map  } from 'rxjs/operators';
 import {Observable} from 'rxjs'
 import {LoginService} from './login.service'
-import { from } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +12,8 @@ import { from } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
   error:any
+  error_temp:boolean=false
+  token:any
   static:number | undefined
   login_url:string ="http://localhost:3002/user/login";
   constructor(private loginService:LoginService,private http:HttpClient
@@ -22,13 +23,32 @@ export class LoginComponent implements OnInit {
      password:new FormControl('',Validators.required)
    })
   ngOnInit(): void {
+   const demo =  sessionStorage.removeItem('token')
+    console.log(demo);
+    
   }
   onSubmit(){
-    this.http.post(this.login_url,this.loginForm.value).subscribe((data:any)=>{
-       sessionStorage.setItem('token',data.token)
-    })
+   this.loginService.login(this.loginForm.value).subscribe(
+     data =>{
+         this.token =data.token
+         console.log(this.token);
+         
+         
+     },
+     error=> {
+       console.log(error.status);
+       if (error.status == 400) {
+         this.error_temp = true
+         return this.error= error.error.massage
+       }
+       if (error.status == 200) {
+         sessionStorage.setItem('token',this.token)
+      }
+     }
+     
+   )
+
   }
-  
-  
+
   
 }

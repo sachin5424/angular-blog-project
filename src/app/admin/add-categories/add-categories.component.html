@@ -5,13 +5,13 @@
       </div>
     </div>
     <div class="blog-form">
-      <form #categories='ngForm' class="example-form" (ngSubmit)="onSubmit(categories.value)" >
+      <form [formGroup]="categoriesForm" class="example-form" (ngSubmit)="onSubmit()" >
         <div class="alert alert-success" *ngIf="form_temp" >
-            <strong>Success!</strong> Indicates a successful or positive action.
+            <strong>{{messsage}}.! </strong> 
           </div>
               <mat-form-field class="example-full-width">
                 <mat-label>categories </mat-label>
-                <input type="text" matInput [(ngModel)]="model.title"  name="title"  placeholder="Add your categories"  autocomplete="nope">
+                <input type="text" formControlName="title" matInput  name="title"  placeholder="Add your categories"  autocomplete="nope">
               </mat-form-field>
               <mat-hint>{{temp}}</mat-hint> 
               <button mat-raised-button color="accent" type="submit">

@@ -14,18 +14,21 @@ export class UpdateService {
       )
 
   };
-  constructor(private http:HttpClient,private handler:HttpBackend) {
-    this.http = new HttpClient(handler)
+  
+  url:string ="http://localhost:3002/categories/"
+  constructor(private http:HttpClient) {
+
+    // this.http = new HttpClient(handler)
 
    }
-   get_value(id:any){
-    return this.http.get('http://localhost:3002/categories/'+id)
-   }
-   update(formdata:any,id:any):Observable<any>{
-    return this.http.post('http://localhost:3002/categories/'+id,formdata.title,this.httOption)
-  }
+  //  http://localhost:3002/categories/update/601ae622dfe9aa70c8bd9b3f
+  //  update_value(id:any){
+  //   const body = { title: 'Angular PUT Request Example' };
+  //    return this.http.put('http://localhost:3002/categories/update/'+id)
+  //  }
+
    dlt_value(id:any){
-    return this.http.delete('http://localhost:3002/categories/'+id)
+    return this.http.delete(this.url+'delete/'+id)
    }
 
 }

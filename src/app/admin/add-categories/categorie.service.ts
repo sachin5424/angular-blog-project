@@ -9,7 +9,7 @@ import {catchError,map} from 'rxjs/operators'
 })
 export class CategorieService {
   error:any={};
-  url:any="http://localhost:3002/categories";
+  url:any="http://localhost:3002/categories/";
   httOption={
     headers:new HttpHeaders(
       {'contect-Type':'applicaton/json'}
@@ -21,6 +21,6 @@ export class CategorieService {
     this.http = new HttpClient(handler)
    }
    categories(formdata:Categorie):Observable<any>{
-     return this.http.post(this.url,formdata,this.httOption)
+     return this.http.post(this.url+'add',formdata)
    }
 }

@@ -38,7 +38,7 @@
                                 <form>
                                     <h1 class="text-center">Admin</h1>
                                     <form  class="example-form " [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
-                                        <div class="alert alert-danger" role="alert">
+                                        <div *ngIf="error_temp"  class="alert alert-danger" role="alert">
                                             {{error}}
                                           </div>
                                         <mat-form-field class="example-full-width">

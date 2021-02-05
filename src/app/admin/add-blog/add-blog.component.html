@@ -5,9 +5,9 @@
       </div>
     </div>
     <div class="blog-form">
-      <form (ngSubmit)="submitMethod(refForm.value)" #refForm="ngForm" autocomplete="off">
+      <form (ngSubmit)="submitMethod()" [formGroup]="BlogForm" autocomplete="off">
         <div class="alert alert-success" *ngIf="form_temp" >
-          <strong>Success!</strong> Indicates a successful or positive action.
+          <strong>{{meassage}}!</strong>
         </div>
         <div class="alert alert-danger" *ngIf="error_temp" >
           <strong>Error!</strong> {{error}}
@@ -15,11 +15,12 @@
         <div class="form-group form-row">
             <label class="col-md-3">Title <span class="required">*</span></label>
             <div class="col-md-9">
-              <input type="text" class="form-control" name="Title" [(ngModel)]="model.Title" placeholder="Title" required>
+              <input minlength="3" type="text" class="form-control" name="title" formControlName="title" placeholder="Title" required>
             </div>
         </div>
         <label for="">categories</label>
-        <select class="form-control w-25 float-right" [(ngModel)]="model.categories" name="categories" >
+        
+        <select class="form-control w-25 float-right" formControlName="categories" name="categories" >
           
           <option *ngFor="let item of get_categories" value="{{item._id}}" >{{item.title}}</option>
           
@@ -27,34 +28,34 @@
         <div class="form-group form-row">
           <label class="col-md-3">Is Featured</label>
           <div class="col-md-9">
-            <input type="radio" [(ngModel)]="model.Active"  name="Active" value="true" /> Yes
-            <input type="radio" [(ngModel)]="model.Active"  name="Active"   value="false" checked /> No
+            <input type="radio" formControlName="Featured"  name="Featured" value="true" /> Yes
+            <input type="radio" formControlName="Featured"  name="Featured"   value="false" checked /> No
           </div>
         </div>
         <div class="form-group form-row">
           <label class="col-md-3">Is Active</label>
           <div class="col-md-9">
-            <input [(ngModel)]="model.Featured" type="radio" name="Featured" value="1" checked /> Yes
-            <input [(ngModel)]="model.Featured" type="radio" name="Featured" value="0" /> No
+            <input formControlName="Active" type="radio" name="Active" value="true" checked /> Yes
+            <input formControlName="Active" type="radio" name="Active" value="false" /> No
           </div>
         </div>
         <div class="form-group form-row">
           <label class="col-md-3">Upload Image</label>
          
           <div class="col-md-9">
-            <input type="file" name="Image" (change)="onChange($event)" [(ngModel)]="model.Image" id="image" />
+            <input type="file" name="Image" (change)="onChange($event)" formControlName="Image" id="image" />
           </div>
         </div>
         <div class="form-group form-row">
             <label class="col-md-3">Description <span class="required">*</span></label>
             <div class="col-md-9">
-              <textarea name="Description" [(ngModel)]="model.Description" rows="5" class="form-control" placeholder="Description" required></textarea>
+              <textarea name="Description" formControlName="Description" rows="5" class="form-control" placeholder="Description" required></textarea>
             </div>
         </div>
         <div class="form-group form-row">
             <label class="col-md-3"></label>
             <div class="col-md-9">
-              <button type="submit"   class="btn btn-primary">Save</button>
+              <button type="submit" [disabled]="BlogForm.invalid"  class="btn btn-primary">Save</button>
             </div>
         </div>
       </form>

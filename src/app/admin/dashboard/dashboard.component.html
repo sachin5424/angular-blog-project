@@ -1,4 +1,29 @@
-<div class="dash-right">
-    <h1>Dashboard</h1>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-</div> 
+<section class="blog-list mtb-40">
+    <h1>Blogs</h1>
+    <div class="container">
+      <div class="row mb-5">
+       
+          <div class="col-md-12 bg-info">
+            <form [formGroup]="getCat"  (click)="clickEventHandler($event)"  >
+              <select style="width: 30%; padding: 1%; margin: 1%;"  class="form-select" formControlName="cat" name="cat"  >
+                  <option></option>
+                   <option *ngFor="let item of all_categories" value="{{item._id}}"    >{{item.title}}</option> 
+                   <button type="button" > save</button>
+             </select>
+             </form>
+          </div>
+      </div>
+      <div class="row">
+        <div *ngFor="let item of data"  class="col-md-4" >
+          <div class="blog-box">
+            <img src="{{url}}{{item.Image}}" alt="blog1" />
+            <h3>{{item.Title}}</h3>
+            <p>by <span>{{item.categories.title}}</span></p>
+            <p>{{item.Description | slice :0:30 }}</p>
+            <a  [routerLink]="['/admin-panel/Dashboard',item._id]" class="btn btn-danger">Read more...</a>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </section>

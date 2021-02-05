@@ -8,22 +8,25 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { CategoriesComponent } from './categories/categories.component';
 import { AddCategoriesComponent } from './add-categories/add-categories.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContectComponent } from './contect/contect.component';
 import {UpdateComponent} from './categories/update/update.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
+import { DashboardDetailsComponent } from './dashboard/dashboard-details/dashboard-details.component';
+
 
 
 
 @NgModule({
-  declarations: [AddBlogComponent, AddBlogListComponent, SidebarComponent, AdminDashboardComponent, CategoriesComponent, AddCategoriesComponent, DashboardComponent, ContectComponent,UpdateComponent],
+  declarations: [AddBlogComponent, AddBlogListComponent, SidebarComponent, AdminDashboardComponent, CategoriesComponent, AddCategoriesComponent, DashboardComponent, ContectComponent,UpdateComponent, DashboardDetailsComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
     HttpClientModule,
     FormsModule,
     AngularMaterialModule,
+    ReactiveFormsModule,
    
     
   ]

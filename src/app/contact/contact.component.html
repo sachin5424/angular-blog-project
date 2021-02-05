@@ -9,10 +9,6 @@
                 <div class="m-4 alert alert-success" *ngIf="form_temp" >
                     <strong>Success!</strong> Indicates a successful or positive action.
                   </div>
-              <!-- <div class="form-group">
-                <input type="text" name="name" formControlName="name" required class="form-control"  placeholder="Name">
-                <mat-hint [hidden]="f.name.invalid">kjh</mat-hint>
-              </div> -->
               <mat-form-field class="example-full-width">
                 <mat-label>username</mat-label>
                 <input matInput name="name" formControlName="name"  placeholder="Name">
@@ -22,25 +18,13 @@
                 <mat-label>Email</mat-label>
                 <input matInput name="email" formControlName="email"  placeholder="E-Mail">
               </mat-form-field>
-            
-              <!-- <div class="form-group">
-                <input type="text" name="email" formControlName="email" required class="form-control" placeholder="E-Mail">
-              </div> -->
               <mat-form-field class="example-full-width">
                 <mat-label>Phone</mat-label>
-                <input matInput name="phone" formControlName="phone"  required class="form-control" placeholder="Phone">
+                <input matInput type="number" name="phone" formControlName="phone"  required class="form-control" placeholder="Phone">
               </mat-form-field>
-
-              <!-- <div class="form-group">
-                <input type="text" name="phone" formControlName="phone"  required class="form-control" placeholder="Phone">
-              </div> -->
-              <!-- <div class="form-group">
-                <textarea name="message" rows="5" class="form-control" required formControlName="msg" placeholder="Message"></textarea>
-              </div> -->
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Textarea</mat-label>
-              <textarea matInput name="message" rows="5" class="form-control" required formControlName="msg" placeholder="Message">
-
+              <textarea matInput name="messsage" rows="5" class="form-control" required formControlName="messsage" placeholder="Message">
               </textarea>
               </mat-form-field>
               <div class="form-group">

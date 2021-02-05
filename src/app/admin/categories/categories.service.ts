@@ -6,13 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class CategoriesService {
   
+  url:string="http://localhost:3002/categories/"
   constructor( private http:HttpClient) { 
     
     
   }
   
   get_categories(){
-   return this.http.get('http://localhost:3002/categories-list')
+   return this.http.get(this.url+'list')
   }
 
 }

@@ -9,6 +9,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { CategoriesComponent } from './categories/categories.component';
 import { UpdateComponent } from './categories/update/update.component';
 import { ContectComponent } from './contect/contect.component';
+import { DashboardDetailsComponent } from './dashboard/dashboard-details/dashboard-details.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -20,6 +21,8 @@ const routes: Routes = [
         path:'blog-list',
         component:AddBlogListComponent
       },
+     
+      
       {
         path:'categories',
         component:CategoriesComponent
@@ -39,6 +42,10 @@ const routes: Routes = [
       {
         path:'Dashboard',
         component:DashboardComponent
+      },
+      {
+        path:'Dashboard/:id',
+        component:DashboardDetailsComponent,
       },
       {
         path:'contect',
